@@ -1,26 +1,28 @@
 <template>
   <v-container>
-    <v-layout text-xs-center wrap>
-      <v-flex xs12>
-        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200"></v-img>
-      </v-flex>
-    </v-layout>
+<!--    <v-layout text-xs-center wrap>-->
+<!--      <v-flex xs12>-->
+<!--        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200"></v-img>-->
+<!--      </v-flex>-->
+<!--    </v-layout>-->
+<!--    <v-card height="300">-->
+<!--      <p>Test #1</p>-->
+<!--      <div v-for="(data) in data" :key="data.dataId">-->
+<!--        <p> {{data}} </p>-->
+<!--      </div>-->
+<!--    </v-card>-->
+
 
     <v-card height="300">
-      <p>Test #1</p>
-      <div v-for="(data) in data" :key="data.dataId">
-        <p> {{data}} </p>
-      </div>
-    </v-card>
-
-
-    <v-card>Test #2
-      <svg width="500" height="270">
-        <g style="transform: translate(0, 10px)">
+      <svg height="300">
+        <g>
           <path :d="line" />
         </g>
       </svg>
     </v-card>
+    <div id="testGraph">
+
+    </div>
   </v-container>
 </template>
 
@@ -31,7 +33,7 @@
     data() {
       return {
         data: [2,1,5,2,3,0,1],
-        line: '',
+        line: ''
       }
     },
 
@@ -41,8 +43,8 @@
 
     methods: {
       getScales() {
-        const x = d3.scaleTime().range([0, 600]);
-        const y = d3.scaleLinear().range([210, 0]);
+        const x = d3.scaleTime().range([0, 430]);
+        const y = d3.scaleLinear().range([300, 0]);
         d3.axisLeft().scale(x);
         d3.axisBottom().scale(y);
         x.domain(d3.extent(this.data, (d, i) => i));
@@ -59,14 +61,15 @@
     },
   }
 
-
 </script>
 
 <style lang="sass" scoped>
   svg
-    margin: 25px
+    /*margin: 15px*/
+    width: 100%
   path
     fill: none
     stroke: #76BF8A
     stroke-width: 3px
+
 </style>
