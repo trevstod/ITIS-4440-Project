@@ -12,27 +12,30 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
-      <ThirdGraph/>
-      <SecondGraph/>
+<!--      <HelloWorld/>-->
+<!--      <ThirdGraph/>-->
+      <WeekChart/>
+<!--      <SecondGraph/>-->
 <!--      <CalComponent/>-->
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import SecondGraph from './components/SecondGraph'
-import ThirdGraph from "./components/ThirdGraph";
+// import HelloWorld from './components/HelloWorld'
+// import SecondGraph from './components/SecondGraph'
+//import ThirdGraph from "./components/ThirdGraph";
+import WeekChart from "./components/WeekChart";
 // import CalComponent from "./components/CalComponent";
 
 export default {
   name: 'App',
   components: {
-      ThirdGraph,
-    // CalComponent,
-    HelloWorld,
-    SecondGraph
+    WeekChart
+    //   ThirdGraph,
+    // // CalComponent,
+    // HelloWorld,
+    // SecondGraph
   },
   data () {
     return {

@@ -48,23 +48,21 @@
                 const svg = d3.select("#another-line").append("svg")
                     .attr("width", "95%")
                     .attr("height", "95%")
-                    .attr("viewBox", "0 0 740 800")
+                    .attr("viewBox", "0 0 740 500")
                     .append("g")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                    // data.forEach(function(d) {
-                    //     d.x = +d.x;
-                    //     d.y = +d.y;
-                    // });
 
                     x.domain(d3.extent(data, function(d) { return d.x; }));
                     y.domain(d3.extent(data, function(d) { return d.y; }));
 
+                    // add the X axis
                     svg.append("g")
                         .attr("class", "x axis")
                         .attr("transform", "translate(0," + height + ")")
                         .call(xAxis);
 
+                    // add the Y axis
                     svg.append("g")
                         .attr("class", "y axis")
                         .call(yAxis);
