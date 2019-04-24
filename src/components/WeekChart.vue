@@ -4,6 +4,7 @@
 
 <script>
     import * as d3 from 'd3'
+    //import * as tip from 'https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js'
 
     export default {
         name: "WeekChart",
@@ -56,12 +57,21 @@
                     .x(function(d) { return xScale(d.day); })
                     .y(function(d) { return yScale(d.numEvents); });
 
+                // var tip = d3.tip()
+                //     .attr('class', 'd3-tip')
+                //     .offset([-10, 0])
+                //     .html(function(d) {
+                //         return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
+                //     });
+
                 // Append everything to SVG to display
                 var svg = d3.select("#line-chart").append("svg")
                     .attr("width", "95%")
                     .attr("height", "95%")
                     .attr("viewBox", "0 0 740 500")
                     .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
+                //svg.call(tip);
 
                 var linearGradient = svg.append("defs")
                     .append("linearGradient")
@@ -113,8 +123,9 @@
                     .duration(1200) // Set Duration timing (ms)
                     .ease(d3.easeLinear) // Set Easing option
                     .attr("stroke-dashoffset", 0)
-                    .attr("stroke-linecap", "round");
-
+                    .attr("stroke-linecap", "round")
+                    // .on('mouseover', tip.show)
+                    // .on('mouseout', tip.hide);
             },
         }
     };
