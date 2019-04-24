@@ -15,21 +15,21 @@
             return {
                 data: [
                     {day: 'Sunday',     numEvents: 0},
-                    {day: 'Monday',     numEvents: 3},
-                    {day: 'Tuesday',    numEvents: 2},
+                    {day: 'Monday',     numEvents: 4},
+                    {day: 'Tuesday',    numEvents: 3},
                     {day: 'Wednesday',  numEvents: 0},
-                    {day: 'Thursday',   numEvents: 1},
+                    {day: 'Thursday',   numEvents: 2},
                     {day: 'Friday',     numEvents: 9},
                     {day: 'Saturday',   numEvents: 3}
                 ],
                 width: 900,
-                height: 500
+                height: 200
             }
         },
         methods: {
             renderChart() {
                 var data = this.data,
-                    margin = {top: 20, right: 20, bottom: 30, left: 10},
+                    margin = {top: 15, right: 20, bottom: 10, left: 10},
                     width = this.width - margin.left - margin.right,
                     height = this.height - margin.top - margin.bottom;
 
@@ -37,11 +37,11 @@
                 // Defining the scales for x/y
                 var xScale = d3.scaleBand()
                     .domain(data.map(function(d){ return d.day}))
-                    .range([0, width*0.87]);
+                    .range([0, width*0.85]);
 
                 var yScale = d3.scaleLinear()
                     .domain([0, d3.max(data, function(d) {  return d.numEvents; })])
-                    .range([height, 0]);
+                    .range([height-10, 10]);
 
                 // Line color gradient
                 var colorRange = ['#d7191c', '#EC7063', '#fdae61', '#a6d96a', '#1a9641'];
@@ -66,10 +66,12 @@
 
                 // Append everything to SVG to display
                 var svg = d3.select("#line-chart").append("svg")
-                    .attr("width", "95%")
-                    .attr("height", "95%")
+                    .attr("width", "90%")
+                    .attr("height", "100%")
                     .attr("viewBox", "0 0 740 500")
-                    .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+                    .attr("transform","translate(" + margin.left + "," + margin.top + ")")
+                    .classed("svg-content-responsive", true);
+                //.attr("transform", "scale(1.05)");
 
                 //svg.call(tip);
 
@@ -124,8 +126,8 @@
                     .ease(d3.easeLinear) // Set Easing option
                     .attr("stroke-dashoffset", 0)
                     .attr("stroke-linecap", "round")
-                    // .on('mouseover', tip.show)
-                    // .on('mouseout', tip.hide);
+                // .on('mouseover', tip.show)
+                // .on('mouseout', tip.hide);
             },
         }
     };
@@ -135,4 +137,11 @@
 <style lang="sass">
     .line
         fill: none
+
+        /*.svg-content-responsive*/
+        /*display: inline-block*/
+        /*position: absolute*/
+        /*top: 10px*/
+        /*left: 0*/
+
 </style>

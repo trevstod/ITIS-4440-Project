@@ -1,41 +1,306 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+<div id="app">
+  <v-app id="inspire">
+    <v-navigation-drawer
+      permanent
+      :clipped="$vuetify.breakpoint.mdAndUp"
+      app
+      v-model="drawer"
+    >
+
+    <h1>Thursday April, 06 2019</h1>
+
+    <v-carousel>
+      <v-carousel-item
+        v-for="(item,i) in items"
+        :key="i"
+        :src="item.src"
+      ></v-carousel-item>
+    </v-carousel>
+
+
+
+    <v-card
+      class="mx-auto"
+      color="#26c6da"
+      dark
+      max-width="400"
+    >
+      <v-card-title>
+        <v-icon
+          large
+          left
+        >
+          mdi-twitter
+        </v-icon>
+        <span class="title font-weight-light">Work</span>
+      </v-card-title>
+  
+      <v-card-text class="headline font-weight-bold">
+        Meeting
+      </v-card-text>
+  
+      <v-card-actions>
+        <v-list-tile class="grow">
+          <v-list-tile-avatar color="grey darken-3">
+            <v-img
+              class="elevation-6"
+              src=""
+            ></v-img>
+          </v-list-tile-avatar>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>Evan You</v-list-tile-title>
+          </v-list-tile-content>
+  
+          <v-layout
+            align-center
+            justify-end
+          >
+            <v-icon class="mr-1">mdi-heart</v-icon>
+            <span class="subheading mr-2">256</span>
+            <span class="mr-1">·</span>
+            <v-icon class="mr-1">mdi-share-variant</v-icon>
+            <span class="subheading">45</span>
+          </v-layout>
+        </v-list-tile>
+      </v-card-actions>
+    </v-card>
+
+
+
+
+    <v-card
+      class="mx-auto"
+      color="#FF7043"
+      dark
+      max-width="400"
+    >
+      <v-card-title>
+        <v-icon
+          large
+          left
+        >
+          mdi-twitter
+        </v-icon>
+        <span class="title font-weight-light">Twitter</span>
+      </v-card-title>
+  
+      <v-card-text class="headline font-weight-bold">
+        Doctor Appointment
+      </v-card-text>
+  
+      <v-card-actions>
+        <v-list-tile class="grow">
+          <v-list-tile-avatar color="grey darken-3">
+            <v-img
+              class="elevation-6"
+              src=""
+            ></v-img>
+          </v-list-tile-avatar>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>Evan You</v-list-tile-title>
+          </v-list-tile-content>
+  
+          <v-layout
+            align-center
+            justify-end
+          >
+            <v-icon class="mr-1">mdi-heart</v-icon>
+            <span class="subheading mr-2">256</span>
+            <span class="mr-1">·</span>
+            <v-icon class="mr-1">mdi-share-variant</v-icon>
+            <span class="subheading">45</span>
+          </v-layout>
+        </v-list-tile>
+      </v-card-actions>
+    </v-card>
+
+
+
+    <v-card
+      class="mx-auto"
+      color="#FF4377"
+      dark
+      max-width="400"
+    >
+      <v-card-title>
+        <v-icon
+          large
+          left
+        >
+          mdi-twitter
+        </v-icon>
+        <span class="title font-weight-light">Twitter</span>
+      </v-card-title>
+  
+      <v-card-text class="headline font-weight-bold">
+        Bucks Vs Hornets
+      </v-card-text>
+  
+      <v-card-actions>
+        <v-list-tile class="grow">
+          <v-list-tile-avatar color="grey darken-3">
+            <v-img
+              class="elevation-6"
+              src=""
+            ></v-img>
+          </v-list-tile-avatar>
+  
+          <v-list-tile-content>
+            <v-list-tile-title>Evan You</v-list-tile-title>
+          </v-list-tile-content>
+  
+          <v-layout
+            align-center
+            justify-end
+          >
+            <v-icon class="mr-1">mdi-heart</v-icon>
+            <span class="subheading mr-2">256</span>
+            <span class="mr-1">·</span>
+            <v-icon class="mr-1">mdi-share-variant</v-icon>
+            <span class="subheading">45</span>
+          </v-layout>
+        </v-list-tile>
+      </v-card-actions>
+    </v-card>
+
+
+
+
+
+    </v-navigation-drawer>
+
+  <v-toolbar
+      color="purple darken-3"
+      dark
+      app
+      :clipped-left="$vuetify.breakpoint.mdAndUp"
+      fixed
+    >
+      <div>
+          <v-btn depressed large>Normal</v-btn>
+        </div>
+
+
+      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+        <span class="hidden-sm-and-down">Google Contacts</span>
       </v-toolbar-title>
+
+
+      <v-text-field
+        flat
+        solo-inverted
+        prepend-icon="search"
+        label="Search"
+        class="hidden-sm-and-down"
+      ></v-text-field>
       <v-spacer></v-spacer>
-      <v-btn flat href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank">
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      <v-spacer></v-spacer>
+      
     </v-toolbar>
 
-    <v-content>
 
-      <WeekChart/>
+<v-content >
+<!--  This was messing up the space b/w calendar and buttons below-->
+      <v-container>
+  <v-layout wrap>
+    <v-flex
+      xs12
+      class="mb-3"
+    >
+      <v-sheet height="500">
+        <v-calendar
+          ref="calendar"
+          v-model="start"
+          :type="type"
+          :end="end"
+          color="primary"
+        ></v-calendar>
+      </v-sheet>
+    </v-flex>
 
+    <v-flex
+      sm4
+      xs12
+      class="text-sm-left text-xs-center"
+    >
+      <v-btn @click="$refs.calendar.prev()">
+        <v-icon
+          dark
+          left
+        >
+          keyboard_arrow_left
+        </v-icon>
+        Prev
+      </v-btn>
+    </v-flex>
+    <v-flex
+      sm4
+      xs12
+      class="text-xs-center"
+    >
+      <v-select
+        v-model="type"
+        :items="typeOptions"
+        label="Type"
+      ></v-select>
+    </v-flex>
+    <v-flex
+      sm4
+      xs12
+      class="text-sm-right text-xs-center"
+    >
+      <v-btn @click="$refs.calendar.next()">
+        Next
+        <v-icon
+          right
+          dark
+        >
+          keyboard_arrow_right
+        </v-icon>
+      </v-btn>
+    </v-flex>
+  </v-layout>
+  </v-container>
+  <WeekChart/>
     </v-content>
-  </v-app>
+    </v-app>
+    </div>
 </template>
 
+
 <script>
-
-import WeekChart from "./components/WeekChart";
-
-export default {
-  name: 'App',
-  components: {
-    WeekChart
-    //   ThirdGraph,
-    // // CalComponent,
-    // HelloWorld,
-    // SecondGraph
-  },
-  data () {
-    return {
-      //
-    }
+  import WeekChart from "./components/WeekChart";
+  export default {
+    components: {WeekChart},
+    data: () => ({
+      type: 'month',
+      start: '2019-01-01',
+      end: '2019-01-06',
+      typeOptions: [
+        { text: 'Day', value: 'day' },
+        { text: '4 Day', value: '4day' },
+        { text: 'Week', value: 'week' },
+        { text: 'Month', value: 'month' },
+        { text: 'Custom Daily', value: 'custom-daily' },
+        { text: 'Custom Weekly', value: 'custom-weekly' }
+      ],
+      items: [
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+        }
+      ]
+    })
   }
-}
 </script>
