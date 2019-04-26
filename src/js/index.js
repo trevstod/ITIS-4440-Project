@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>my-app2</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but my-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app">
-      <p id="audio-control" class="white-circle">
-        <img src="https://www.shareicon.net/data/48x48/2015/10/07/113732_audio_512x512.png">
-        <canvas class="visualizer"></canvas>
-    </p>
-    <p><span id="message"></span></p>
-    <p>
-        <input type="text" id="BOT" name="BOT" placeholder="BOT" value="WeatherBot"/>
-    </p>
-</div>
-<script src="https://sdk.amazonaws.com/js/aws-sdk-2.48.0.min.js"></script>
-<script src="../dist/aws-lex-audio.js" type="text/javascript"></script>
-  </body>
-</html>
-
-<script type="text/javascript">
-
-  (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function () {
   'use strict';
   var rec = require('./recorder.js');
@@ -936,4 +904,3 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         });
         conversation.advanceConversation();
     };
-</script>

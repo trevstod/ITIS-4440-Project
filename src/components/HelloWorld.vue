@@ -28,6 +28,7 @@
 
 <script>
   import * as d3 from 'd3';
+
   export default {
     data() {
       return {
@@ -35,9 +36,11 @@
         line: ''
       }
     },
+
     mounted() {
       this.calculatePath();
     },
+
     methods: {
       getScales() {
         const x = d3.scaleTime().range([0, 430]);
@@ -57,6 +60,7 @@
       },
     },
   }
+
 </script>
 
 <style lang="sass" scoped>
@@ -67,4 +71,5 @@
     fill: none
     stroke: #76BF8A
     stroke-width: 3px
+
 </style>
